@@ -1,11 +1,18 @@
-;(function () {
+/**
+ * MIT License
+ * Copyright (c) 2022 MarginNote
+ * Github: https://github.com/marginnoteapp/keepscreenon
+ * Welcom to contribute to this project!
+ */
+
+try {
   const Addon = {
     name: "Keep Screen ON",
     key: "keepscreenon"
   }
   const console = {
-    log(obj) {
-      JSB.log(`${Addon.key} %@`, obj)
+    log(obj, suffix = "normal") {
+      JSB.log(`${Addon.key}-${suffix} %@`, obj)
     }
   }
   const zh = {
@@ -16,12 +23,12 @@
     on: `"Keep Screen ON" is ON`,
     off: `"Keep Screen ON" is OFF`
   }
-  const lang =
-    NSLocale.preferredLanguages().length &&
-    NSLocale.preferredLanguages()[0].startsWith("zh")
-      ? zh
-      : en
   JSB.newAddon = () => {
+    const lang =
+      NSLocale.preferredLanguages().length &&
+      NSLocale.preferredLanguages()[0].startsWith("zh")
+        ? zh
+        : en
     const showHUD = (text, duration = 2) => {
       Application.sharedInstance().showHUD(text, self.window, duration)
     }
@@ -64,4 +71,6 @@
       {}
     )
   }
-})()
+} catch (err) {
+  JSB.log(`keepscreenon-error %@`, err)
+}

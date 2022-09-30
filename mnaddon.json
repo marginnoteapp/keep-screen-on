@@ -2,7 +2,7 @@
   "addonid": "marginnote.extension.keepscreenon",
   "author": "MN(ourongxing",
   "title": "Keep Screen ON",
-  "version": "0.9.0",
-  "marginnote_version_min": "3.6.19",
+  "version": "1.0.0",
+  "marginnote_version_min": "3.7.18",
   "cert_key": ""
 }
